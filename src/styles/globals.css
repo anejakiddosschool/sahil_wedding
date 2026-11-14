@@ -3755,14 +3755,41 @@ p {
 @keyframes reading-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 :root[data-motion="reduced"] [data-reveal],
 :root[data-motion="reduced"] [data-reveal] *,
+:root[data-motion="reduced"] .pdf-preview,
 :root[data-motion="reduced"] .journey-drawn-path { transition: none !important; }
 
 /* PDF Download button */
-.pdf-download {
+.pdf-dock {
   position: fixed;
   bottom: 24px;
   right: 24px;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+/* First page of the card, shown above the download button */
+.pdf-preview {
+  display: block;
+  width: 104px;
+  padding: 4px;
+  background: #fffdf6;
+  border: 1px solid rgba(161, 124, 79, 0.55);
+  box-shadow: 0 6px 18px rgba(60, 25, 10, 0.28);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pdf-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.pdf-preview:hover,
+.pdf-preview:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(60, 25, 10, 0.34);
+}
+.pdf-download {
   background: #8b0000;
   color: #fffdf6;
   border: none;
@@ -3778,6 +3805,7 @@ p {
   gap: 8px;
   font-family: "Cormorant Garamond", Georgia, serif;
   letter-spacing: 0.05em;
+  text-decoration: none;
 }
 .pdf-download:hover {
   background: #a52a2a;
@@ -3793,6 +3821,8 @@ p {
   margin: 12mm;
 }
 @media print {
+  .pdf-dock,
+  .pdf-preview,
   .pdf-download,
   .skip-link,
   .audio-control,
@@ -3939,9 +3969,16 @@ p {
 
 /* Mobile adjustments for PDF button */
 @media (max-width: 600px) {
-  .pdf-download {
+  .pdf-dock {
     bottom: 16px;
     right: 16px;
+    gap: 8px;
+  }
+  .pdf-preview {
+    width: 76px;
+    padding: 3px;
+  }
+  .pdf-download {
     padding: 10px 20px;
     font-size: 0.9rem;
   }

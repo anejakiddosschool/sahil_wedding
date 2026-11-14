@@ -10,14 +10,35 @@ import { ClosingScene } from "./components/scenes/ClosingScene";
 import { FamilySignOffScene } from "./components/scenes/FamilySignOffScene";
 import "./styles/globals.css";
 function DownloadPDF() {
-  const download = () => {
-    window.print();
-  };
   return (
-    <button className="pdf-download" onClick={download} aria-label="Download invitation as PDF">
-      <span>📄 Download PDF</span>
-      <span className="pdf-hint">(Print → Save as PDF)</span>
-    </button>
+    <div className="pdf-dock">
+      <a
+        className="pdf-preview"
+        href="/Sahil-Keena-Wedding-Card.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Preview the wedding invitation card"
+        title="Preview the card"
+      >
+        <img
+          src="/images/card-preview.jpg"
+          alt="First page of the printed wedding invitation card"
+          width={537}
+          height={760}
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+      <a
+        className="pdf-download"
+        href="/Sahil-Keena-Wedding-Card.pdf"
+        download="Sahil-Keena-Wedding-Card.pdf"
+        aria-label="Download the wedding invitation card as a PDF"
+      >
+        <span>📄 Download PDF</span>
+     
+      </a>
+    </div>
   );
 }
 function App() {
