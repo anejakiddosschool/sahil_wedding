@@ -95,7 +95,7 @@ export const weddingData = {
   familySignOff: [
     {
       heading: "A CORDIAL INVITATION FROM",
-      names: ["Sh. Shiv Shankar — Canara Bank Manager (Retd.)", "Suraj Bhan"],
+      names: ["Sh. Shiv Shankar — Canara Bank Manager (Retd.)", " Sh. Suraj Bhan"],
     },
     {
       heading: "NANIHAL PAKSH",
